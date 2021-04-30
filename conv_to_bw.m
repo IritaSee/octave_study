@@ -1,0 +1,2 @@
+%Thresholdnya pake slider ya
+
