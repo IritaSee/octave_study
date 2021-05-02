@@ -23,12 +23,13 @@ function convertRGB()
   
   push1=uicontrol('units','pixels','style','pushbutton','string','buka file','position',[150 350 75 25],'callback',{@bukafile ax1});
   push2=uicontrol('units','pixels','style','pushbutton','string','convert','position',[550 350 75 25],'callback', {@convert edit1,edit2,edit3,ax2,rad1});
-  push3=uicontrol('units','pixels','style','pushbutton','string','apply threshold','position',[900 150 110 50]);
+ 
   
   
   slide=uicontrol('style','slider','Min',0,'Max',255,'value',1,'units','pixels','position',[850 250 200 20]);
   edit4=uicontrol('units','pixels','style','edit','position',[925 225 50 25],'enable','off');
-  
+  push4=uicontrol('units','pixels','style','pushbutton','string','update','position',[910 200 75 25],'callback',{@showval slide,edit4});
+  push3=uicontrol('units','pixels','style','pushbutton','string','apply threshold','position',[900 100 110 50],'callback',{@bwmaker slide,ax3});
 endfunction
 
 function radbtn1(hObject, eventdata, rad1,rad2,edit1,edit2,edit3)
@@ -73,8 +74,15 @@ function convert(hObject,eventdata,edit1,edit2,edit3,ax2,rad1)
   save grey.mat grey
 endfunction
 
-function bwmaker(hObject,eventdata,edit1,edit2,edit3,ax2,rad1)
-  
-  
+function bwmaker(hObject,eventdata,slide,ax3)
+  load grey.mat
+  th = get(slide,'value');
+  bw=(grey<=th);
+  axes(ax3);
+  imshow(bw);
 endfunction
 
+function showval(hObject,eventdata,slide,edit4)
+  val=get(slide,'value');
+  set(edit4,'string',int2str(val));
+endfunction
