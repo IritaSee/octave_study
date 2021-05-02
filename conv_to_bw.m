@@ -26,7 +26,7 @@ function convertRGB()
  
   
   
-  slide=uicontrol('style','slider','Min',0,'Max',255,'value',1,'units','pixels','position',[850 250 200 20]);
+  slide=uicontrol('style','slider','Min',0,'Max',255,'units','pixels','position',[850 250 200 20]);
   edit4=uicontrol('units','pixels','style','edit','position',[925 225 50 25],'enable','off');
   push4=uicontrol('units','pixels','style','pushbutton','string','update','position',[910 200 75 25],'callback',{@showval slide,edit4});
   push3=uicontrol('units','pixels','style','pushbutton','string','apply threshold','position',[900 100 110 50],'callback',{@bwmaker slide,ax3});
