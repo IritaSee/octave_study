@@ -1,5 +1,5 @@
 function glcm_features_extraction()
-  f1=figure('units','pixels','position', [200 200 600 600]);
+  f1=figure('units','pixels','position', [200 200 800 600]);
   ax1=axes('units','normalize','position',[0.3 0.6 0.3 0.3]);
   push1=uicontrol('units','normalize','style','pushbutton','string','buka file','position',[0.1 0.8 0.15 0.1],'callback',{@bukafile ax1});
   push2=uicontrol('units','normalize','style','pushbutton','string','convert','position',[0.7 0.8 0.15 0.1],'callback', {@convert,ax1});
@@ -39,12 +39,16 @@ function bukafile(hObject,eventdata,ax1)
 endfunction
 
 function convert(hObject,eventdata,ax1)
+  pkg load image
   load img1.mat;
-  grey=rgb2gray(img1);
+  grey=im2single(rgb2gray(img1));
   axes(ax1);
   imshow(grey);
+  glcm=graycomatrix(grey,16,[3 3],0);
   save grey.mat grey
-  glcm=graycomatrix(grey)
+  glcm
+  res=graycoprops(glcm)
+  res
 endfunction
   
 
