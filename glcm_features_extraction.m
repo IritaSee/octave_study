@@ -55,19 +55,18 @@ function convert(hObject,eventdata,ax1,edit1,edit2,edit3 )
   lvl=str2num(get(edit3,'string'));
   glcm=graycomatrix(grey,lvl,[dist dist],agl);
   save glcm.mat glcm
-  glcm
+  glcm;
 endfunction
   
   
 function process(hObject,eventdata,contrast_val,diss_val,homogenity_val,asm_val,energy_val)
-  pkg load image
   load glcm.mat;
   contrast=0;
   dissimilarity=0;
   homogenity=0;
   asm=0;
   energy=0;
-  ukuran=size(glcm);
+  ukuran=size(glcm)
   
   for i=1:ukuran(1)
     for j=1:ukuran(2)
@@ -78,7 +77,7 @@ function process(hObject,eventdata,contrast_val,diss_val,homogenity_val,asm_val,
   set(contrast_val,'string',num2str(contrast));
   for i=1:ukuran(1)
     for j=1:ukuran(2)
-      dissimilarity=dissimilarity+(-log(glcm(i,j,1))*glcm(i,j,1)); 
+      dissimilarity=dissimilarity+(glcm(i,j,1)*abs(i-j)); 
     endfor
   endfor
   dissimilarity
