@@ -1,0 +1,65 @@
+angle=0 distance=16 level=16
+
+all black:
+contrast = 0
+dissimilarity = 0
+homogenity =  96080
+asm =  7259040000
+energy =  85200
+
+all white:
+contrast = 0
+dissimilarity = 0
+homogenity =  96080
+asm =  7259040000
+energy =  85200
+
+3 stripes:
+contrast = 0
+dissimilarity = 0
+homogenity =  66544
+asm =  3067025056
+energy =  55380.72820
+
+2 stripes:
+contrast = 0
+dissimilarity = 0
+homogenity =  48084
+asm =  1384137616
+energy =  37204
+
+Marker filled:
+contrast =  33
+dissimilarity =  9
+homogenity =  11164
+asm =  78966
+energy =  281.01
+
+--------texture-------
+crayon:
+contrast =  66643
+dissimilarity =  8639
+homogenity =  12735
+asm =  25513
+energy =  159.73
+
+oil:
+contrast =  575442
+dissimilarity =  83696
+homogenity =  29645
+asm =  1657337
+energy =  1287.4
+
+pencil:
+contrast =  1254
+dissimilarity =  410
+homogenity =  11164
+asm =  10696
+energy =  103.42
+
+watercolour:
+contrast =  3499
+dissimilarity =  779
+homogenity =  11248
+asm =  8688
+energy =  93.209

@@ -47,9 +47,9 @@ function convert(hObject,eventdata,ax1,edit1,edit2,edit3 )
   warning('off','all');
   pkg load image
   load img1.mat;
-  grey=(rgb2gray(img1));
-  axes(ax1);
-  imshow(grey);
+  grey=(img1);
+  %axes(ax1);
+  %imshow(grey);
   save grey.mat grey
   dist=str2num(get(edit1,'string'));
   agl=str2num(get(edit2,'string'));
