@@ -31,9 +31,18 @@ function glcm_features_extraction()
   energy_val=uicontrol('units','normalize','style','edit','position',[0.5 0.15 0.1 0.05],'enable','off');
   
   push3=uicontrol('units','normalize','style','pushbutton','string','find values','position',[0.4 0.5 0.15 0.05],'callback', {@process, contrast_val, diss_val,homogenity_val,asm_val,energy_val});
-  
+  push4=uicontrol('units','normalize','style','pushbutton','string','normalisasi','position',[0.7 0.5 0.15 0.05],'callback',{@normalisasi});
 endfunction
 
+
+
+function normalisasi(hObject,eventdata)
+  load glcm.mat glcm
+  pembagi=max(max(glcm));
+  glcm=glcm/pembagi;
+  save glcm.mat glcm
+  glcm
+endfunction
 
 function bukafile(hObject,eventdata,ax1)
   [namafile pathfile] = uigetfile('*.jpg','browse jpg file')
