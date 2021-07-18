@@ -33,6 +33,9 @@ function glcm_features_extraction()
   push3=uicontrol('units','normalize','style','pushbutton','string','find values','position',[0.4 0.5 0.15 0.05],'callback', {@process, contrast_val, diss_val,homogenity_val,asm_val,energy_val});
   push4=uicontrol('units','normalize','style','pushbutton','string','normalisasi','position',[0.7 0.5 0.15 0.05],'callback',{@normalisasi});
   
+  push5=uicontrol('units','normalize','style','pushbutton','string','save 1st figure','position',[0.7 0.3 0.15 0.05],'callback',{@save1});
+  push6=uicontrol('units','normalize','style','pushbutton','string','save 2nd figure','position',[0.7 0.2 0.15 0.05],'callback',{@save2});
+  
 endfunction
 
 function normalisasi(hObject,eventdata)
@@ -41,6 +44,16 @@ function normalisasi(hObject,eventdata)
   glcm=glcm/pembagi;
   save glcm.mat glcm
   glcm
+endfunction
+
+function save1(hObject,eventdata)
+  load glcm.mat glcm
+  save fig1.mat glcm
+endfunction
+
+function save2(hObject,eventdata)
+  load glcm.mat glcm
+  save fig2.mat glcm
 endfunction
 
 
